@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #chat-container {
+            width: 50%;
+            max-width: 600px;
+            min-width: 300px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #messages {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        .message {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+        .user {
+            background: #d1e7fd;
+            text-align: right;
+        }
+        .bot {
+            background: #e2e2e2;
+            text-align: left;
+        }
+        #user-input {
+            width: calc(100% - 70px);
+            padding: 10px;
+            margin-right: 10px;
+        }
+        #send-btn {
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="messages"></div>
+        <div>
+            <input type="text" id="user-input" placeholder="Type a message...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const messagesDiv = document.getElementById('messages');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        sendBtn.addEventListener('click', () => {
+            const userMessage = userInput.value;
+            if (userMessage.trim() === "") return;
+
+            displayMessage(userMessage, 'user');
+            userInput.value = '';
+
+            fetch('/chat/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ user_input: userMessage })
+            })
+            .then(response => response.json())
+            .then(data => {
+                displayMessage(data.response, 'bot');
+            })
+            .catch(error => console.error('Error:', error));
+        });
+
+        function displayMessage(message, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', sender);
+            messageDiv.textContent = message;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+    </script>
+</body>
+</html>
