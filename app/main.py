@@ -2,19 +2,21 @@ from flask import Blueprint, request, jsonify
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 from pymongo import MongoClient
-from dotenv import load_dotenv
-import os
 
-# Cargar variables de entorno
-# load_dotenv()
+import json
+import os
 
 chat = Blueprint('chat', __name__)
 
-# Proximo > Configuración de MongoDB
-# mongo_uri = os.getenv("MONGODB_URI")
-# client = MongoClient(mongo_uri)
-# db = client['chatbot_db']
-# conversations = db['conversations']
+# Cargar el archivo de configuración
+with open('config.json') as config_file:
+    config = json.load(config_file)
+
+# Configuración de MongoDB > Solucionar problemas con dotenv o decouple
+mongo_uri =config.get("MONGODB_URI")
+client = MongoClient(mongo_uri)
+db = client['chatbot_db']
+conversations = db['conversations']
 
 tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-medium")
 model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-medium")
@@ -44,8 +46,8 @@ def chat_route():
     # Decodificar la respuesta del bot y eliminar el token EOS
     response = tokenizer.decode(chat_history_ids[:, bot_input_ids.shape[-1]:][0], skip_special_tokens=True)
 
-    # Proximo > almacenar conversación en MongoDB
-    # conversations.insert_one({"user_input": user_input, "response": response})
+    # Almacenar conversación en MongoDB
+    conversations.insert_one({"user_input": user_input, "response": response})
 
     return jsonify({"response": response})
 
