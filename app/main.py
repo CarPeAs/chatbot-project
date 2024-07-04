@@ -2,9 +2,8 @@ from flask import Blueprint, request, jsonify
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 from pymongo import MongoClient
-
+from datetime import datetime
 import json
-import os
 
 chat = Blueprint('chat', __name__)
 
@@ -17,6 +16,9 @@ mongo_uri =config.get("MONGODB_URI")
 client = MongoClient(mongo_uri)
 db = client['chatbot_db']
 conversations = db['conversations']
+
+# Creación de un índice TTL para que las conversaciones se borren pasadas 24 horas
+db.conversations.create_index("createdAt", expireAfterSeconds=86400)
 
 tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-medium")
 model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-medium")
@@ -47,7 +49,7 @@ def chat_route():
     response = tokenizer.decode(chat_history_ids[:, bot_input_ids.shape[-1]:][0], skip_special_tokens=True)
 
     # Almacenar conversación en MongoDB
-    conversations.insert_one({"user_input": user_input, "response": response})
+    conversations.insert_one({"user_input": user_input, "response": response, "createdAt": datetime.utcnow()})
 
     return jsonify({"response": response})
 
