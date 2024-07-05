@@ -1,64 +1,18 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/output.css')}}">
     <title>ChatBot</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-        #chat-container {
-            width: 50%;
-            max-width: 600px;
-            min-width: 300px;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        #messages {
-            max-height: 300px;
-            overflow-y: auto;
-            margin-bottom: 20px;
-        }
-        .message {
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-        }
-        .user {
-            background: #d1e7fd;
-            text-align: right;
-        }
-        .bot {
-            background: #e2e2e2;
-            text-align: left;
-        }
-        #user-input {
-            width: calc(100% - 70px);
-            padding: 10px;
-            margin-right: 10px;
-        }
-        #send-btn {
-            padding: 10px 20px;
-        }
-    </style>
 </head>
-<body>
-    <div id="chat-container">
-        <div id="messages"></div>
-        <div>
-            <input type="text" id="user-input" placeholder="Type a message...">
-            <button id="send-btn">Send</button>
+<bodyclass="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div id="chat-container" class="w-1/2 max-w-xl min-w-sm bg-white p-5 rounded-lg shadow-lg">
+        <div id="messages" class="max-h-80 overflow-y-auto mb-5"></div>
+        <div class="flex">
+            <input type="text" id="user-input" placeholder="Type a message..." class="flex-grow p-2 border border-gray-300 rounded-l-lg">
+            <button id="send-btn" class="p-2 bg-blue-500 text-white rounded-r-lg">Send</button>
         </div>
     </div>
 

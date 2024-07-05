@@ -1,3 +1,4 @@
+# app/main.py
 from flask import Blueprint, request, jsonify
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
@@ -17,8 +18,14 @@ client = MongoClient(mongo_uri)
 db = client['chatbot_db']
 conversations = db['conversations']
 
-# Creación de un índice TTL para que las conversaciones se borren pasadas 24 horas
-db.conversations.create_index("createdAt", expireAfterSeconds=86400)
+# Verificar y actualizar el índice TTL para que las conversaciones se borren pasadas 24 horas
+existing_indexes = conversations.index_information()
+if "createdAt_1" in existing_indexes:
+    if existing_indexes["createdAt_1"].get('expireAfterSeconds') != 86400:
+        conversations.drop_index("createdAt_1")
+        conversations.create_index("createdAt", expireAfterSeconds=86400)
+else:
+    conversations.create_index("createdAt", expireAfterSeconds=86400)
 
 tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-medium")
 model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-medium")
