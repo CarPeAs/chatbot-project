@@ -8,7 +8,7 @@ Este proyecto es un chatbot desarrollado utilizando diversas tecnologías modern
 - **HuggingFace**: Para utilizar modelos de lenguaje preentrenados en esta primera fase el modelo `microsoft/DialoGPT-medium`.
 - **MongoDB**: Base de datos para almacenar conversaciones, historial y datos de usuarios.
 - **Flask**: Framework de Python para desarrollar la API del ChatBot.
-- **JavaScript/React**: Para el frontend del ChatBot.
+- **JavaScript/Tailwind**: Para el frontend del ChatBot.
 - **Docker**: Para contenerizar la aplicación y facilitar el despliegue.
 - **Heroku**: Plataforma gratuita para desplegar el backend y la base de datos.
 
@@ -22,10 +22,10 @@ Este proyecto es un chatbot desarrollado utilizando diversas tecnologías modern
 - [x] Implementación de la API con Flask.
 - [x] Configuración de HuggingFace para utilizar un modelo de lenguaje preentrenado.
 - [x] Creación de endpoints para recibir mensajes del usuario y responder utilizando el modelo de lenguaje.
-- [ ] Conexión con MongoDB para almacenar y recuperar conversaciones.
+- [X] Conexión con MongoDB para almacenar y recuperar conversaciones.
 
 ### 🎨 Desarrollo del Frontend
-- [ ] Creación de una interfaz de usuario con React donde los usuarios puedan interactuar con el ChatBot.
+- [ ] Creación de una interfaz de usuario con Tailwind donde los usuarios puedan interactuar con el ChatBot.
 - [ ] Configuración de llamadas a la API para enviar y recibir mensajes.
 
 ### 📦 Despliegue
