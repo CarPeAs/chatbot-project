@@ -23,10 +23,20 @@ Este proyecto es un chatbot desarrollado utilizando diversas tecnologías modern
 - [x] Configuración de HuggingFace para utilizar un modelo de lenguaje preentrenado.
 - [x] Creación de endpoints para recibir mensajes del usuario y responder utilizando el modelo de lenguaje.
 - [X] Conexión con MongoDB para almacenar y recuperar conversaciones.
+- [X] Implementación de un índice TTL en MongoDB para borrar conversaciones después de 24 horas.
+
+#### Configuración de MongoDB Atlas
+<img src="img/mongo.png" alt="formato datos mongodb" width="500" style="display: block; margin: auto;" />
 
 ### 🎨 Desarrollo del Frontend
-- [ ] Creación de una interfaz de usuario con Tailwind donde los usuarios puedan interactuar con el ChatBot.
-- [ ] Configuración de llamadas a la API para enviar y recibir mensajes.
+- [X] Creación de una interfaz de usuario con Tailwind donde los usuarios puedan interactuar con el ChatBot.
+- [X] Configuración de llamadas a la API para enviar y recibir mensajes.
+
+#### Interfaz de usuario del ChatBot
+<img src="img/chat1.png" alt="Interfaz del chat" width="500" style="display: block; margin: auto;" />
+
+#### Interacción con el ChatBot
+<img src="img/chat2.png" alt="Imagen de conversación con el Chat" width="500" style="display: block; margin: auto;" />
 
 ### 📦 Despliegue
 - [ ] Dockerización de la aplicación para facilitar el despliegue.
