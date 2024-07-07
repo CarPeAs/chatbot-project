@@ -13,7 +13,9 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
+#SO
 .DS_Store
+Thumbs.db
 
 # Others
 config.json
