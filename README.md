@@ -1,62 +1,70 @@
 # 🤖 ChatBot Project
 
-Este proyecto es un chatbot desarrollado utilizando diversas tecnologías modernas como HuggingFace, Flask, MongoDB y React. El objetivo es crear un chatbot interactivo que pueda almacenar conversaciones y proporcionar respuestas inteligentes a las consultas de los usuarios.
+This project is a chatbot developed using modern technologies such as HuggingFace, Flask, MongoDB, and Tailwind CSS. The goal is to create an interactive chatbot that can store conversations and provide intelligent responses to user queries.
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Technologies Used
 
-- **Python**: Lenguaje principal para desarrollar el backend del ChatBot.
-- **HuggingFace**: Para utilizar modelos de lenguaje preentrenados en esta primera fase el modelo `microsoft/DialoGPT-medium`.
-- **MongoDB**: Base de datos para almacenar conversaciones, historial y datos de usuarios.
-- **Flask**: Framework de Python para desarrollar la API del ChatBot.
-- **JavaScript/Tailwind**: Para el frontend del ChatBot.
-- **Docker**: Para contenerizar la aplicación y facilitar el despliegue.
-- **Heroku**: Plataforma gratuita para desplegar el backend y la base de datos.
+- **Python**: Main language for developing the backend of the ChatBot.
+- **HuggingFace**: To utilize pre-trained language models, specifically the `microsoft/DialoGPT-medium` model in this initial phase.
+- **MongoDB**: Database for storing conversations, history, and in a future phase user data.
+- **Flask**: Python framework for developing the ChatBot API.
+- **JavaScript/Tailwind CSS**: For the ChatBot frontend.
+- **Docker**: To containerize the application and facilitate deployment.
+- **Heroku**: Free platform to deploy the backend and database.
 
-## 📈 Progreso del Proyecto
+## 📈 Project Progress
 
-### 🛠️ Configuración del Entorno
-- [x] Configuración del entorno virtual en Python.
-- [x] Instalación de dependencias necesarias (HuggingFace, Flask, pymongo, etc.).
+### 🛠️ Environment Setup
+- [x] Configuration of the virtual environment in Python.
+- [x] Installation of necessary dependencies (HuggingFace, Flask, pymongo, etc.).
 
-### 🚀 Desarrollo del Backend
-- [x] Implementación de la API con Flask.
-- [x] Configuración de HuggingFace para utilizar un modelo de lenguaje preentrenado.
-- [x] Creación de endpoints para recibir mensajes del usuario y responder utilizando el modelo de lenguaje.
-- [X] Conexión con MongoDB para almacenar y recuperar conversaciones.
-- [X] Implementación de un índice TTL en MongoDB para borrar conversaciones después de 24 horas.
+### 🚀 Backend Development
+- [x] Implementation of the API with Flask.
+- [x] Configuration of HuggingFace to use a pre-trained language model.
+- [x] Creation of endpoints to receive user messages and respond using the language model.
+- [X] Connection with MongoDB to store and retrieve conversations.
+- [X] Implementation of a TTL index in MongoDB to delete conversations after 24 hours.
 
-#### Configuración de MongoDB Atlas
+#### Sample data in MongoDB Atlas
 <img src="img/mongo.png" alt="formato datos mongodb" width="500" style="display: block; margin: auto;" />
 
-### 🎨 Desarrollo del Frontend
-- [X] Creación de una interfaz de usuario con Tailwind donde los usuarios puedan interactuar con el ChatBot.
-- [X] Configuración de llamadas a la API para enviar y recibir mensajes.
+### 🎨 Frontend Development
+- [X] Creation of a user interface with Tailwind CSS where users can interact with the ChatBot.
+- [X] Configuration of API calls to send and receive messages.
 
-#### Interfaz de usuario del ChatBot
+#### User Interface of the ChatBot
 <img src="img/chat1.png" alt="Interfaz del chat" width="500" style="display: block; margin: auto;" />
 
-#### Interacción con el ChatBot
+#### Interaction with the ChatBot
 <img src="img/chat2.png" alt="Imagen de conversación con el Chat" width="500" style="display: block; margin: auto;" />
 
-### 📦 Despliegue
-- [ ] Dockerización de la aplicación para facilitar el despliegue.
-- [ ] Despliegue de la aplicación en Heroku.
-- [ ] Configuración de MongoDB para que esté accesible desde la aplicación desplegada.
+### 📦 Deployment
+- [X] Dockerization of the application to facilitate deployment.
+- [ ] Deployment of the application on Heroku.
+- [ ] Configuration of MongoDB to be accessible from the deployed application.
 
-### 🔍 Pruebas y Mejora Continua
-- [ ] Realización de pruebas exhaustivas para asegurar que el ChatBot responde correctamente.
-- [ ] Añadir características adicionales como reconocimiento de contexto, mejoras en el diseño de la UI, etc.
+### 🔍 Testing and Continuous Improvement
+- [ ] Conducting extensive tests to ensure the ChatBot responds correctly.
+- [ ] Adding additional features such as context recognition, improvements in UI design, etc.
 
-## 💻 Cómo Ejecutar el Proyecto
-### 🔧 Prerrequisitos
-### 📜 Instrucciones
-### 🌟 Futuras Mejoras
-### 🤝 Contribuciones
+## 💻 How to Run the Project
+### 🔧 Prerequisites
+- Python 3.9
+- Node.js and npm
+- Docker and Docker Compose
+  
+### 📜 Instructions
+
+### 🐳 Docker Configuration
+
+### 🌟 Future Improvements
+### 🤝 Contributions
+Contributions are welcome. Please open an issue or a pull request to discuss what you would like to change.
 
 ## 📜 Licencia
 
-Este proyecto está bajo la Licencia MIT.
+This project is licensed under the MIT License.
 
 ---
 
-Hecho con ❤️ por [CarPeAs](https://github.com/CarPeAs) 
+Made with ❤️ by [CarPeAs](https://github.com/CarPeAs) 
