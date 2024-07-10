@@ -7,6 +7,7 @@ services:
       - "5000:5000"
     environment:
       - FLASK_ENV=development
+      - MONGODB_URI=${MONGODB_URI}
     volumes:
       - .:/app
     depends_on:
