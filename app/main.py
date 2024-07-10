@@ -1,19 +1,24 @@
 # app/main.py
+import os
 from flask import Blueprint, request, jsonify
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 from pymongo import MongoClient
 from datetime import datetime
 import json
+from dotenv import load_dotenv
 
 chat = Blueprint('chat', __name__)
 
 # Cargar el archivo de configuración
-with open('config.json') as config_file:
-    config = json.load(config_file)
+# with open('config.json') as config_file:
+#     config = json.load(config_file)
+
+# prueba con dotenv en Render
+mongo_uri = os.getenv("MONGODB_URI")
 
 # Configuración de MongoDB > Solucionar problemas con dotenv o decouple
-mongo_uri =config.get("MONGODB_URI")
+# mongo_uri =config.get("MONGODB_URI")
 client = MongoClient(mongo_uri)
 db = client['chatbot_db']
 conversations = db['conversations']

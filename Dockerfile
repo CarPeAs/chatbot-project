@@ -16,5 +16,5 @@ COPY . .
 # Expone el puerto en el que la aplicación estará corriendo
 EXPOSE 5000
 
-# Comando para ejecutar la aplicación con Gunicorn
-CMD ["python", "app.py"]
+# Ejecutar la aplicación con Waitress
+CMD ["waitress-serve", "--port=5000", "wsgi:app"]
