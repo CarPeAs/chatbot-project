@@ -10,7 +10,7 @@ This project is a chatbot developed using modern technologies such as HuggingFac
 - **Flask**: Python framework for developing the ChatBot API.
 - **JavaScript/Tailwind CSS**: For the ChatBot frontend.
 - **Docker**: To containerize the application and facilitate deployment.
-- **Heroku**: Free platform to deploy the backend and database.
+- **Deploy**:  Find a free platform to deploy the backend and database.
 
 ## 📈 Project Progress
 
@@ -40,7 +40,7 @@ This project is a chatbot developed using modern technologies such as HuggingFac
 
 ### 📦 Deployment
 - [X] Dockerization of the application to facilitate deployment.
-- [ ] Deployment of the application on Heroku.
+- [ ] Deployment of the application.
 - [ ] Configuration of MongoDB to be accessible from the deployed application.
 
 ### 🔍 Testing and Continuous Improvement
